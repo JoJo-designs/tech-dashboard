@@ -16,6 +16,10 @@ class Posts extends Model {}
                 allowNull: false,
                 defaultValue: DataType.NOW,
             },
+            post_title: {
+                type: DataType.STRING,
+                allowNull: false,
+            },
             post_content: { // content of the post I think I should put a limited on characters at some point
                 type: DataType.STRING,
                 allowNull: false,
