@@ -40,3 +40,5 @@ class User extends Model {}
             modelName: 'user',
         }
     );
+
+    module.exports = User;

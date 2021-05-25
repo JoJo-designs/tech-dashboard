@@ -40,3 +40,5 @@ class Posts extends Model {}
             modelName: 'posts'
         }
     );
+
+    module.exports = Posts;

@@ -43,3 +43,5 @@ class Comments extends Model {}
             modelName: 'user',
         }
     );
+
+    module.exports = Comments;
