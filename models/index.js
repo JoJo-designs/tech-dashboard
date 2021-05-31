@@ -4,13 +4,13 @@ const Comments = require('./comments');
 
 
 User.hasMany(Post, {
-    foreignKey: 'user_id',
-    onDelete: 'CASCADE',
+    as: 'post'
 });
 
-// Post.hasOne(User, {
-//     foreignKey: 'user_id'
-// });
+Post.hasOne(User, {
+    foreignKey: 'user_id',
+    as: "user"
+});
 
 User.hasMany(Comments, {
     foreignKey: 'user_id',
