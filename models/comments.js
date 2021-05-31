@@ -40,7 +40,7 @@ class Comments extends Model {}
             timestamps: false,
             freezeTableName: true,
             underscored: false,
-            modelName: 'user',
+            modelName: 'comment',
         }
     );
 
