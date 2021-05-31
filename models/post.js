@@ -1,4 +1,4 @@
-const { Model, DataType } = require('sequelize');
+const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection')
 
 class Posts extends Model {}
@@ -12,20 +12,20 @@ class Posts extends Model {}
                 autoIncrement: true,
             },
             posted_on: { // date the post was made
-                type: DataType.DATE,
+                type: DataTypes.DATE,
                 allowNull: false,
-                defaultValue: DataType.NOW,
+                defaultValue: DataTypes.NOW,
             },
             post_title: {
-                type: DataType.STRING,
+                type: DataTypes.STRING,
                 allowNull: false,
             },
             post_content: { // content of the post I think I should put a limited on characters at some point
-                type: DataType.STRING,
+                type: DataTypes.STRING,
                 allowNull: false,
             },
             user_id: { // used to get the id of the user who posted it so we can get the user name.
-                type: DataType.INTEGER,
+                type: DataTypes.INTEGER,
                 references: {
                     model: 'user',
                     key: 'id',

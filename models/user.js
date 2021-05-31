@@ -1,4 +1,4 @@
-const { Model, DataType } = require('sequelize');
+const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection')
 
 class User extends Model {}
@@ -12,20 +12,12 @@ class User extends Model {}
                 autoIncrement: true,
             },
             user_name: { // users name must be unique to the user
-                type: DataType.STRING,
+                type: DataTypes.STRING,
                 allowNull: false,
                 unique: true,
-            },
-            email:{ // email unique to the user and in an email format
-                type: DataType.STRING,
-                allowNull: false,
-                unique: true,
-                validate: {
-                    isEmail: true,
-                },
             },
             password: { // password must be 8 characters longs
-                type: DataType.STRING,
+                type: DataTypes.STRING,
                 allowNull: false,
                 validate: {
                     len: [8],

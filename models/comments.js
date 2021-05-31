@@ -1,4 +1,4 @@
-const { Model, DataType } = require('sequelize');
+const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection')
 
 class Comments extends Model {}
@@ -12,23 +12,23 @@ class Comments extends Model {}
                 autoIncrement: true,
             },
             added_on: { // the date the comment was added to a post
-                type: DataType.DATE,
+                type: DataTypes.DATE,
                 allowNull: false,
-                defaultValue: DataType.NOW,
+                defaultValue: DataTypes.NOW,
             },
             content: { // the content of the comment. should add a limit to characters
-                type: DataType.STRING,
+                type: DataTypes.STRING,
                 allowNull: false,
             },
             user_id: { // gets the user who commented 
-                type: DataType.INTEGER,
+                type: DataTypes.INTEGER,
                 references: {
                     model: 'user',
                     key: 'id',
                 },
             },
             post_id: { // gets the id of the post the comment is connect to.
-                type: DataType.INTEGER,
+                type: DataTypes.INTEGER,
                 references: {
                     model: 'posts',
                     key: 'id',
