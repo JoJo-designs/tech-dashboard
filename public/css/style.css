@@ -1,0 +1,128 @@
+/* stuff on everypage */
+
+body {
+    width: 100%;
+    background-color: aliceblue;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    width: 100%;
+    background-color: teal;
+    padding: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.nav {
+    display: inline;
+    margin-right: 20px;
+    color: white;
+}
+
+h1 {
+    margin-bottom: 10px;
+    color: white;
+}
+
+footer {
+    width: 100%;
+    background-color: teal;
+    padding: 20px;
+    margin-left: 0;
+    position: relative;
+    left: -10px;
+}
+
+
+/* stuff for the post sections. */
+
+section {
+    width: 100%;
+    margin-top: 150px;
+}
+
+div {
+    width: 95%;
+    background-color: white;
+    margin: 0 auto;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+    border: teal solid 2px;
+}
+
+.titleBlock {
+    background-color: teal;
+    width: 100%;
+    padding: 10px 0;
+    height: 25px;
+    color: white;
+} 
+
+h2 {
+    width: 50%;
+    display: inline;
+    margin-left: 10px;
+}
+
+.postdata {
+    width: 50%;
+    display: inline;
+}
+
+p {
+    padding-left: 10px;
+}
+
+/* adding a comment */
+
+textarea {
+  width: 60%;
+  height: 80px;
+  margin: 15px 20%; 
+}
+
+.postButton {
+    background-color: teal;
+    width: 30%;
+    padding: 10px 0;
+    text-align: center;
+    color: white;
+} 
+
+/* sign up and sign in */
+
+.signin {
+    width: 60%;
+    margin: 15px 20%; 
+    height: 30px;
+}
+
+/* make a new post */
+
+input {
+    width: 60%;
+    margin: 15px 20%; 
+    height: 30px;
+}
+
+/* On the user dashboard */
+
+.postBlock {
+    width: 95%;
+    background-color: white;
+    margin: 0 auto;
+    padding-bottom: 5px;
+    margin-bottom: 13px;
+    color: white;
+    background-color: teal;
+    padding: 10px 0;
+    height: 25px;
+}
+
+.userDashboard {
+    color: teal;
+    margin-left: 2%;
+    margin-bottom: 15px;
+}

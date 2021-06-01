@@ -4,7 +4,8 @@ const { User, Comments, Post } = require('../models');
 
 router.get('/', async (req,res) => {
     try {
-      res.render('homepage', { homepage });
+    //   res.render('homepage', { homepage });
+      res.render('homepage');
     } catch (err) {
       res.status(500).json(err);
     }
