@@ -7,8 +7,7 @@ class User extends Model {
     return bcrypt.compareSync(loginPw, this.password);
   }
 }
-
-    User.init(
+     User.init(
         {
             id: { // Users unique Id
                 type: DataTypes.INTEGER,
