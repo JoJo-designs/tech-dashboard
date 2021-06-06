@@ -16,10 +16,6 @@ const signUpForm = async (event) => {
   const user_name = document.getElementById("userName").value.trim();
   const password = document.getElementById("password").value.trim();
 
-  console.log(email);
-  console.log(user_name);
-  console.log(password);
-
   if (email && user_name && password) {
     const response = await fetch('/api/user/', {
       method: 'POST',
@@ -28,7 +24,7 @@ const signUpForm = async (event) => {
     });
 
     if (response.ok) {
-      document.location.replace('dashboard')
+      document.location.replace('/')
     } else {
       alert(response.statusText);
     }
