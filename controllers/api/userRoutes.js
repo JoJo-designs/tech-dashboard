@@ -38,7 +38,7 @@ router.post('/', async (req, res) => {
         })
 
         req.sessions.save(() => {
-            req.sessions.loggedIn = true;
+            req.session.loggedIn = true;
 
             res.status(200).json(newUserData);
         });
