@@ -16,6 +16,14 @@ class User extends Model {}
                 allowNull: false,
                 unique: true,
             },
+            email: {
+                type: DataTypes.STRING,
+                allowNull: false,
+                unique: true,
+                validate: {
+                    isEmail: true, 
+                },
+            },
             password: { // password must be 8 characters longs
                 type: DataTypes.STRING,
                 allowNull: false,
