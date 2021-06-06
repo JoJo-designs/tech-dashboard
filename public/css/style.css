@@ -83,12 +83,18 @@ textarea {
   margin: 15px 20%; 
 }
 
+form {
+    text-align: center;
+}
+
 .postButton {
+    border: none;
+    text-align: center;
     background-color: teal;
     width: 30%;
     padding: 10px 0;
-    text-align: center;
     color: white;
+    margin: 0 auto;
 } 
 
 /* sign up and sign in */
