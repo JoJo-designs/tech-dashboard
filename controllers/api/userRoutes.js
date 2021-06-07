@@ -56,6 +56,7 @@ router.post('/login', async (req, res) => {
         if (!userData) {
             res
             .status(400)
+            console.log("wrong data\n")
             .json({ message: 'incorrect email or password, please try again' });
             return;
         }
@@ -64,6 +65,7 @@ router.post('/login', async (req, res) => {
 
         if (!validPassword) {
             res.json(400)
+            console.log("wrong password\n")
             .json({ message: 'incorrect email or password, please try again' });
             return;
         }
@@ -73,6 +75,7 @@ router.post('/login', async (req, res) => {
             req.session.logged_in = true;
 
             res.json({ message: 'logged in successful' })
+            console.log(req.sessionID)
         })
 
     } catch (err) {
