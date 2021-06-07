@@ -1,5 +1,4 @@
 const router = require('express').Router();
-const bcrypt = require('bcrypt');
 const { User, Post } = require('../../models');
 
 
@@ -38,6 +37,7 @@ router.post('/', async (req, res) => {
         })
 
         req.session.save(() => {
+            req.session.user_id = newUserData.id;
             req.session.loggedIn = true;
 
             res.status(200).json(newUserData);
@@ -48,17 +48,36 @@ router.post('/', async (req, res) => {
     }
 });
 
-// working post request doesn't create a session I think I will need that
-// no examples that makes a session and encrptys password but also has sign ups a user
-// router.post('/', async (req, res) => {
-//     try {
-//         const newUser = req.body;
-//         newUser.password = await bcrypt.hash(req.body.password, 10);
-//         const userData = await User.create(newUser);
-//         res.status(200).json(userData);
-//     }  catch (err) {
-//        res.status(400).json(err)
-//     }
-// });   
+// logs in a user
+router.post('/login', async (req, res) => {
+    try {
+        const userData = await User.findOne({ where: { email: req.body.email} });
+
+        if (!userData) {
+            res
+            .status(400)
+            .json({ message: 'incorrect email or password, please try again' });
+            return;
+        }
+        
+        const validPassword = await userData.checkPassword(req.body.password);
+
+        if (!validPassword) {
+            res.json(400)
+            .json({ message: 'incorrect email or password, please try again' });
+            return;
+        }
+
+        req.session.save(() => {
+            req.session.user_id = userData.id;
+            req.session.logged_in = true;
+
+            res.json({ message: 'logged in successful' })
+        })
+
+    } catch (err) {
+        res.status(400).json(err);
+    }
+});
 
 module.exports = router;

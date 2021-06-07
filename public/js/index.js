@@ -1,5 +1,4 @@
 // INDEX.JS WILL HANDLE ROUTING IN THE NAV AND THE API CALL FOR THE HOME PAGE
-console.log("connneted")
 
 // Selecting buttons from the Html
 const logInBtn = document.getElementById('logIn')

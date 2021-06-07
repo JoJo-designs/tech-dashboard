@@ -126,7 +126,7 @@ input {
     color: white;
     background-color: teal;
     padding: 10px 0;
-    height: 25px;
+    height: auto;
 }
 
 .userDashboard {

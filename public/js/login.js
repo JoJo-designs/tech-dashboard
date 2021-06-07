@@ -8,10 +8,25 @@ signUpBtn.addEventListener('click', signUpHandler);
 }
 
 // Logs in a user when they entered the correct data.
-// currently doesn't work
 const loginHandler = async (event) => {
   event.preventDefault();
-  console.log("this function was called")
+  
+  const email = document.getElementById("email").value.trim();
+  const password = document.getElementById("password").value.trim();
+
+  if (email && password) {
+    const response = await fetch('/api/user/login', {
+      method: 'POST',
+      body: JSON.stringify({ email, password }),
+      header: { 'Content-Type': 'application/json' },
+    });
+
+    if (response.ok) {
+      document.location.replace('/dashboard');
+    } else {
+      alert(response.statusText);
+    }
+  }
 }
 
 document
