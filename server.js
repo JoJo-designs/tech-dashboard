@@ -17,8 +17,8 @@ const sess = {
   saveUninitialized: false,
 };
 
-
 app.use(session(sess));
+
 
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
