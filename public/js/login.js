@@ -8,7 +8,7 @@ signUpBtn.addEventListener('click', signUpHandler);
 }
 
 // Logs in a user when they entered the correct data.
-// breaking at line 18
+// breaking at line 18 according to the console
 const loginHandler = async (event) => {
   event.preventDefault();
   
