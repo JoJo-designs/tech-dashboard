@@ -1,5 +1,5 @@
         {{#each post as |posts|}}
-         <div class="pure-u-20-24 pure-u-md-20-24" >
+         <div class="pure-u-20-24 pure-u-md-20-24" id="postBlock" data-uniquePostId="{{post.id}}" >
             <div class="titleBlock">
             <h2>{{posts.post_title}}</h2>
             <p class="postdata">posted by <strong>{{posts.user.user_name}}</strong> on {{posts.posted_on}}</p></div>

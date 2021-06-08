@@ -7,6 +7,7 @@ function getPost() {
         if (response.status === 200) {
             response.json().then(data => console.log(data))
         }
+        return response.json();
     });
 }
 
