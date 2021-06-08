@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const { User, Post } = require('../../models');
 
+// Route /api/user/
 
 // Route gets all users
 router.get('/', async (req, res) => {

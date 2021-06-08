@@ -1,6 +1,9 @@
-        <div class="pure-u-20-24 pure-u-md-20-24">
+        {{#each post as |post|}}
+         <div class="pure-u-20-24 pure-u-md-20-24" >
             <div class="titleBlock">
-            <h2>The title will go here.</h2>
-            <p class="postdata">posted by <strong>Wowtech</strong> on 05/24/2021</p></div>
+            <h2>{{post.post_title}}</h2>
+            <p class="postdata">posted by <strong>Wowtech</strong> on {{post_posted_on}}</p></div>
             <p> this is the content of the post it has a lot of interesting info</p>
         </div>
+{{/each}}
+<script src="./js/landingpage.js"></script>
