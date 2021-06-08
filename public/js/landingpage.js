@@ -1,14 +1,9 @@
-// LANDINGPAGE.JS HANDLES GETS THE POST THAT WILL APPEAR ON THE HOMEPAGE 
-// WHEN THE USER HAND ON THE PAGE.
+// LANDINGPAGE.JS HANDLES GETS THE ID OF POST AND MAKE EACH ONE CLICKABLE
+// SO USERS 
 
-function getPost() {
-    fetch("/api/post/")
-    .then(function (response) {
-        if (response.status === 200) {
-            response.json().then(data => console.log(data))
-        }
-        return response.json();
-    });
-}
-
-getPost();
+$(".post").click(function() {
+    let postId = $(this).data('uniquepostid');
+    // localStorage.setItem("postId", JSON.stringify(uniquepostid))
+    console.log("clicked");
+    console.log(postId);
+});
