@@ -2,7 +2,7 @@
          <div class="pure-u-20-24 pure-u-md-20-24 post" data-uniquepostid="{{post.id}}" >
             <div class="titleBlock">
             <h2>{{post.post_title}}</h2>
-            <p class="postdata">posted by <strong>{{post.user_name}}</strong> on {{post.posted_on}}</p></div>
+            <p class="postdata">posted by <strong>{{post.user.user_name}}</strong> on {{post.posted_on}}</p></div>
             <p class="">{{post.post_content}}</p>
         </div>
 {{/each}}
