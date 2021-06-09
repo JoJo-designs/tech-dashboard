@@ -1,9 +1,9 @@
 {{!-- users names will put in the users username when the user logs in --}}
-{{!-- <h1 class="userDashboard">{{user.userName}} Dashboard</h1>  --}}
-{{#each users as |user|}}
+<h1 class="userDashboard">{{users.userName}}'s Dashboard</h1> 
+{{#each user as |users|}}
         <div class="postBlock pure-u-20-24 pure-u-md-20-24">
-            <h2>{{user.post_title}}</h2>
-            <p class="postdata">posted on {{user.posted_on}}</p>
+            <h2>{{users.post_title}}</h2>
+            <p class="postdata">posted on {{users.posted_on}}</p>
         </div>
         {{/each}}  
     <div class="postButton" id="post"> + New Post </div>

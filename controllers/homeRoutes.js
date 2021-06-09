@@ -47,8 +47,7 @@ router.get('/dashboard', async (req, res) => {
        include: [{ model: Post }] 
     });
 
-    const users = userData.map((user) => user.get({ plain: true }));
-    res.render('dashboard', { users });
+    res.render('dashboard', { user: userData.get({ plain: true}) });
   } catch (err) {
     res.status(500).json(err);
   }
