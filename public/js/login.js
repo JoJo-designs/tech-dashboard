@@ -19,7 +19,7 @@ const loginHandler = async (event) => {
     const response = await fetch('/api/user/login', {
       method: 'POST',
       body: JSON.stringify({ email, password }),
-      header: { 'Content-Type': 'application/json' },
+      //header: { 'Content-Type': 'application/json' },
     });
 
     if (response.ok) {

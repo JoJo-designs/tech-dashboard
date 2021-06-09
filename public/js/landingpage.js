@@ -3,7 +3,6 @@
 
 $(".post").click(function() {
     let postId = $(this).data('uniquepostid');
-    // localStorage.setItem("postId", JSON.stringify(uniquepostid))
     console.log("clicked");
     console.log(postId);
 });
