@@ -40,12 +40,21 @@ router.get('/signUp', async (req, res) => {
 //  will need an Id and log in data but I will make a filler for now
 router.get('/dashboard', async (req, res) => {
   try {
-    res.render('dashboard');
+    const userUniqueId = req.session.user_id
+    console.log(userUniqueId);
+
+    const userData = await User.findOne({ where: {id: userUniqueId}, 
+       include: [{ model: Post }] 
+    });
+
+    const users = userData.map((user) => user.get({ plain: true }));
+    res.render('dashboard', { users });
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
+// opens the new post handlebars when the user user the new post button
 router.get('/newpost', async (req, res) => {
   try {
     res.render('newpost');
