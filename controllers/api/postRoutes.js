@@ -29,6 +29,18 @@ router.get('/:id', async (req, res) => {
     }
 })
 
+router.put('/:id', withAuth, async (req, res) => {
+    try {
+        const editPost = await Post.update({
+            ...req.body,
+            user_id: req.session.user_id,
+        });
+        res.status(200).json(editPost)
+    } catch (err) {
+        res.status(400).json(err);
+    }
+});
+
 // adds a new post
 router.post('/', withAuth, async (req, res) => {
     try {
