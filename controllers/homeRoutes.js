@@ -38,7 +38,7 @@ router.get('/signUp', async (req, res) => {
 
 // route renders the dashboard for each user. 
 //  will need an Id and log in data but I will make a filler for now
-router.get('/dashboard', withAuth ,async (req, res) => {
+router.get('/dashboard', withAuth, async (req, res) => {
   try {
     const userUniqueId = req.session.user_id
     console.log(userUniqueId);
@@ -58,7 +58,7 @@ router.get('/dashboard', withAuth ,async (req, res) => {
 });
 
 // opens the new post handlebars when the user user the new post button
-router.get('/newpost', async (req, res) => {
+router.get('/newpost', withAuth, async (req, res) => {
   try {
     res.render('newpost');
   } catch (err) {
