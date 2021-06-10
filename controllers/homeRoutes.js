@@ -63,9 +63,13 @@ router.get('/newpost', withAuth, async (req, res) => {
   }
 })
 
-router.get('/edit', withAuth, async (req, res) => {
+router.get('/edit/:id', withAuth, async (req, res) => {
   try {
-    res.render('edit');
+    let post = await Post.findByPk(req.params.id);
+
+    post = post.get({ plain: true });
+
+    res.render('edit', {post});
   } catch (err) {
     res.status(500).json(err)
   }

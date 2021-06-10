@@ -6,9 +6,9 @@ $(".postBlock").click(function() {
     // internal Id is the unique id of each post.
     let internalID = $(this).data('userpostid');
     console.log(internalID)
-    document.location.replace("/edit")
-    // will need to build the function route and page that will allow a user to edit
-    // the post and delete.
+    // I need a way to get the internal id to the backend so I can make a call to 
+    // get the data for that post and put it in the input an text box
+    document.location.replace(`/edit/${internalID}`)
 })
 
 
