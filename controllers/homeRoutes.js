@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const { User, Comments, Post } = require('../models');
-//const withAuth = require('../utils/auth');
+const withAuth = require('../utils/auth');
 
 
 // route renders the home page
@@ -38,7 +38,7 @@ router.get('/signUp', async (req, res) => {
 
 // route renders the dashboard for each user. 
 //  will need an Id and log in data but I will make a filler for now
-router.get('/dashboard', async (req, res) => {
+router.get('/dashboard', withAuth ,async (req, res) => {
   try {
     const userUniqueId = req.session.user_id
     console.log(userUniqueId);
@@ -47,7 +47,10 @@ router.get('/dashboard', async (req, res) => {
        include: [{ model: Post }] 
     });
 
+    //const userOne = userData.map((user) => user.get({ plain: true }));    
     res.render('dashboard', { user: userData.get({ plain: true}) });
+    //res.render('dashboard', { userOne });
+    console.log(userData);
   } catch (err) {
     res.status(500).json(err);
   }
