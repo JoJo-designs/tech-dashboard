@@ -41,17 +41,14 @@ router.get('/signUp', async (req, res) => {
 router.get('/dashboard', withAuth, async (req, res) => {
   try {
     const userUniqueId = req.session.user_id
-    console.log(userUniqueId);
 
     const userData = await User.findOne({ where: {id: userUniqueId}, 
        include: [{ model: Post }] 
     });
-    console.log(userData.get({ plain: true}))
 
     //const userOne = userData.map((user) => user.get({ plain: true }));    
     res.render('dashboard', { user: userData.get({ plain: true}) });
     //res.render('dashboard', { userOne });
-    console.log(userData);
   } catch (err) {
     res.status(500).json(err);
   }
