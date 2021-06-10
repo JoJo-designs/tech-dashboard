@@ -1,5 +1,6 @@
 const router = require('express').Router();
-const { User, Post, Comments } = require('../../models')
+const { User, Post, Comments } = require('../../models');
+const withAuth = require('../../utils/auth');
 
 // Route /api/post/
 
@@ -29,14 +30,18 @@ router.get('/:id', async (req, res) => {
 })
 
 // adds a new post
-router.post('/', async (req, res) => {
+router.post('/', withAuth, async (req, res) => {
     try {
-        const postData = await Post.create(req.body);
-        res.status(200).json(postData);
+      const newPost = await Post.create({
+        ...req.body,
+        user_id: req.session.user_id,
+      });
+  
+      res.status(200).json(newPost);
     } catch (err) {
-        res.status(500).json(err)
+      res.status(400).json(err);
     }
-});
+  });
 
 // delete a post from the data base
 router.delete('/:id', async (req, res) => {
