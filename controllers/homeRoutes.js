@@ -46,6 +46,7 @@ router.get('/dashboard', withAuth ,async (req, res) => {
     const userData = await User.findOne({ where: {id: userUniqueId}, 
        include: [{ model: Post }] 
     });
+    console.log(userData.get({ plain: true}))
 
     //const userOne = userData.map((user) => user.get({ plain: true }));    
     res.render('dashboard', { user: userData.get({ plain: true}) });
