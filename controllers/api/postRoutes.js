@@ -55,6 +55,7 @@ router.post('/', withAuth, async (req, res) => {
     }
   });
 
+
 // delete a post from the data base
 router.delete('/:id', async (req, res) => {
     try {
