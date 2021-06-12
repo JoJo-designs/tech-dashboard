@@ -8,7 +8,7 @@ $(".postBlock").click(function() {
     console.log(internalID)
     // I need a way to get the internal id to the backend so I can make a call to 
     // get the data for that post and put it in the input an text box
-    document.location.replace(`/edit/${internalID}`)
+    window.location.href = `/edit/${internalID}`
 })
 
 
