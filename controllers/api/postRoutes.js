@@ -14,7 +14,7 @@ router.get('/', async (req, res) => {
     } catch (err) {
         res.status(500).json(err);
     }
-})
+});
 
 // gets one post and related comments with an id. I need a way to match up 
 // user ids to comments and the post
@@ -27,7 +27,7 @@ router.get('/:id', async (req, res) => {
     } catch (err) {
         res.status(500).json(err);
     }
-})
+});
 
 router.put('/:id', withAuth, async (req, res) => {
     try {
@@ -66,6 +66,6 @@ router.delete('/:id', async (req, res) => {
     } catch (err) {
         res.status(500).json(err)
     }
-})
+});
 
 module.exports = router;

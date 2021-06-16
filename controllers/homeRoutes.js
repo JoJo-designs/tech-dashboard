@@ -61,7 +61,7 @@ router.get('/newpost', withAuth, async (req, res) => {
   } catch (err) {
     res.status(500).json(err)
   }
-})
+});
 
 router.get('/edit/:id', withAuth, async (req, res) => {
   try {
@@ -73,6 +73,6 @@ router.get('/edit/:id', withAuth, async (req, res) => {
   } catch (err) {
     res.status(500).json(err)
   }
-})
+});
 
 module.exports = router;
