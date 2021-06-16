@@ -95,7 +95,7 @@ router.post('/logout', (req, res) => {
         });
     } else {
         res.status(204).end();
-    }
+    } 
 });
 
 module.exports = router;
