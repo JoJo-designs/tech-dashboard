@@ -1,8 +1,8 @@
 <div class="pure-u-20-24 pure-u-md-20-24">
-    <div class="titleBlock"><!-- blue line at the top--></div>
-            <textarea type="text" style="height: 20px;">{{post.post_title}}</textarea>
-            <textarea type="text">{{post.post_content}}</textarea>
-            <div class="postButton" id="update"> Update Post </div>
-            <div class="postButton" id="update"> Delete Post </div>
+    <div class="titleBlock" data-postid="{{post.id}}"><!-- blue line at the top--></div>
+            <textarea type="text" style="height: 20px;" id="titleBlock" ">{{post.post_title}}</textarea>
+            <textarea type="text" id="content">{{post.post_content}}</textarea>
+            <div class="postButton" id="updatepost"> Update Post </div>
+            <div class="postButton" id="deletepost"> Delete Post </div>
 </div>
 <script src="/js/edit.js"></script>
