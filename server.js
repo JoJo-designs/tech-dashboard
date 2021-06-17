@@ -13,6 +13,7 @@ const PORT = process.env.PORT || 3001;
 // Set up sessions
 const sess = {
   secret: 'Super secret secret',
+  cookie: {},
   resave: false,
   saveUninitialized: false,
   store: new SequelizeStore({
@@ -27,7 +28,7 @@ app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
 
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, '/public')));
 
 // turn on routes
@@ -37,7 +38,7 @@ app.use(routes);
 app.listen(PORT, () => {
   console.log(`Now listening on port ${PORT}`);
   sequelize.sync({ force: false });
-})
+});
 // sequelize.sync({ force: false }).then(() => {
 //   app.listen(PORT, () => console.log('Now listening'));
 // });
