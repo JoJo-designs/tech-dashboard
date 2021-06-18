@@ -29,6 +29,7 @@ router.get('/:id', async (req, res) => {
     }
 });
 
+// next two routes do not work in insomina.
 // router.put('/:id',  async (req, res) => {
 //     try {
 //         const editPost = await Post.update({
@@ -42,25 +43,40 @@ router.get('/:id', async (req, res) => {
 //     }
 // });
 
-router.put('/:id', async (req, res) => {
-    try{
-   const updatePost = await Post.update(
-       {
+// router.put('/:id', withAuth, async (req, res) => {
+//     try {
+//         const editPost = await Post.update({
+//             where: { id: req.params.id },
+//             posted_on: Date.now(),
+//             post_title: req.body.post_title,
+//             post_content: req.body.post_content,
+//             user_id: req.session.user_id,
+//         });
+//         res.status(200).json(editPost)
+//     } catch (err) {
+//         res.status(400).json(err);
+//     }
+// });
+
+// this works in insomina
+router.put('/:id', (req, res) => {
+    Post.update(
+        {
            post_title: req.body.post_title,
            post_content: req.body.post_content,
-       },
-       {
-       where: {
-           id: req.params.id,
-       }
-    }
-   );
-   res.status(200).json(updatePost)
-} catch (err) {
-    res.json(400).json(err);
-}
-   
+        },
+        {
+            where: {
+                id: req.params.id,
+            }
+        },
+    )
+    .then((updatePost) => {
+        res.json(updatePost);
+    })
+    .catch((err) => res.json(err));
 });
+   
 
 // adds a new post
 router.post('/', withAuth, async (req, res) => {
