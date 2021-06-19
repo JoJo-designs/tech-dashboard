@@ -7,7 +7,7 @@ const newPostHandler = async (event) => {
     console.log(post_content)
 
     if (post_title && post_content) {
-        const response = await fetch('api/post', {
+        const response = await fetch('/api/post', {
             method: 'POST',
             body: JSON.stringify({ post_title, post_content }),
             headers: { 'Content-Type': 'application/json' },
