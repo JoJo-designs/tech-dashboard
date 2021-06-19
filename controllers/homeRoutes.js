@@ -28,9 +28,9 @@ router.get('/login', async (req, res) => {
 });
 
 // route renders the sign up page
-router.get('/signUp', async (req, res) => {
+router.get('/signup', async (req, res) => {
   try {
-    res.render('signUp');
+    res.render('signup');
   } catch (err) {
     res.status(500).json(err);
   }

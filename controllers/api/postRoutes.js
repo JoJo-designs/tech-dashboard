@@ -30,7 +30,7 @@ router.get('/:id', async (req, res) => {
 });
 
 // next two routes do not work in insomina.
-// router.put('/:id',  async (req, res) => {
+// router.put('/:id', withAuth,  async (req, res) => {
 //     try {
 //         const editPost = await Post.update({
 //             where: { id: req.params.id },
