@@ -60,6 +60,7 @@ router.get('/:id', async (req, res) => {
 
 // this works in insomina
 router.put('/:id', (req, res) => {
+    console.log("hello")
     Post.update(
         {
            post_title: req.body.post_title,

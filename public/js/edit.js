@@ -17,20 +17,47 @@ updatePost.addEventListener('click', function() {
     console.log(internalID);
 
     if (post_title && post_content) {
-        const response = fetch(`api/post/${internalID}`, {
+        fetch(`/api/post/${internalID}`, {
             method: 'PUT',
             body: JSON.stringify({ post_title, post_content }),
             headers: { 'Content-Type': 'application/json' },
-        });
-
-        if (response.ok) {
-            document.location.replace('/dashboard');
-            alert('Post has been updated');
-        } else {
-            alert("post could not be updated")
-        }
+        }).then( (response) => {
+            console.log(response)
+            if (response.ok) {
+                document.location.replace('/dashboard');
+                alert('Post has been updated');
+            } else {
+                alert("post could not be updated")
+            }
+        })
     } 
 });
+
+// updates a post doesn't work.
+// updatePost.addEventListener('click', async, function() {
+//     console.log("button clicked")
+
+//     const post_title = document.getElementById("titleBlock").value.trim();
+//     const post_content = document.getElementById("content").value.trim();
+//     console.log(post_title);
+//     console.log(post_content);
+//     console.log(internalID);
+
+//     if (post_title && post_content) {
+//         const response = await fetch(`api/post/${internalID}`, {
+//             method: 'PUT',
+//             body: JSON.stringify({ post_title, post_content }),
+//             headers: { 'Content-Type': 'application/json' },
+//         });
+
+//         if (response.ok) {
+//             document.location.replace('/dashboard');
+//             alert('Post has been updated');
+//         } else {
+//             alert("post could not be updated")
+//         }
+//     } 
+// });
 
 // deletes a post
 deletePost.addEventListener('click', function() {
